@@ -17,12 +17,14 @@ class PostController extends Controller
 
     public function getPost(Post $post) // or public function show(Post $post)
     {
+      // GET /posts/{posts}/
       return $post;
       return view('posts.show', compact('post'));
     }
 
     public function new()
     {
-      return view('posts.new')
+      // GET /posts/new
+      return view('posts.new');
     }
 }
