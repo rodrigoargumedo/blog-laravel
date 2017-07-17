@@ -15,9 +15,14 @@ class PostController extends Controller
       return view('posts.index', compact('posts'));
     }
 
-    public function getPost(Post $post) // or function show($id)
+    public function getPost(Post $post) // or public function show(Post $post)
     {
       return $post;
-      return view('posts.shoq', compact('post'));
+      return view('posts.show', compact('post'));
+    }
+
+    public function new()
+    {
+      return view('posts.new')
     }
 }
