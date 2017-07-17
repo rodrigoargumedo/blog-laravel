@@ -27,4 +27,12 @@ class PostController extends Controller
       // GET /posts/new
       return view('posts.new');
     }
+
+    public function create()
+    {
+      Post::create(request(['title', 'body']));
+
+      return redirect('/posts/');
+
+    }
 }
