@@ -18,7 +18,6 @@ class PostController extends Controller
     public function getPost(Post $post) // or public function show(Post $post)
     {
       // GET /posts/{posts}/
-      return $post;
       return view('posts.show', compact('post'));
     }
 
@@ -30,9 +29,14 @@ class PostController extends Controller
 
     public function create()
     {
+      
+      $this->validate(request(), [
+        'title' => 'required',
+        'body' => 'required'
+      ]);
+
       Post::create(request(['title', 'body']));
 
       return redirect('/posts/');
-
     }
 }
